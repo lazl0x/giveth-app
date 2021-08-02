@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Layout, Breadcrumb, PageHeader } from 'antd';
 
 class Join extends Component {
 
@@ -13,10 +13,12 @@ class Join extends Component {
 
   render() {
      return (
-     <div>
-      <h2>Join</h2>
-    </div> 
-     )
+    <PageHeader
+        className="site-page-header"
+        onBack={()=>{}}
+        title="Join Giveaway"
+    />
+    )
   }
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Layout, Breadcrumb, PageHeader } from 'antd';
 
 class Give extends Component {
 
@@ -12,11 +12,13 @@ class Give extends Component {
   }
 
   render() {
-     return (
-     <div>
-      <h2>Give</h2>
-    </div> 
-     )
+           return (
+    <PageHeader
+        className="site-page-header"
+        onBack={()=>{}}
+        title="Create Giveaway"
+    />
+    )
   }
 }
 
