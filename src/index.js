@@ -2,10 +2,10 @@ import Web3 from 'web3';
 import React, { Component } from "react";
 import { HashRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import { render } from "react-dom";
-import Home from "./Home";
+import  About from "./About"
 import Join from "./Join";
 import Give from "./Give";
-import { Layout, Breadcrumb, Button, Affix } from 'antd';
+import { Layout, Breadcrumb, Button, Affix, Space, Typography, Divider, Menu, PageHeader } from 'antd';
 import "antd/dist/antd.css";
 import "./index.css";
 
@@ -30,37 +30,46 @@ class App extends Component {
 
   render() {
 
-  const breadcrumbItems = [
-      <Breadcrumb.Item key="home">
-        <Link to="/">Home</Link>
-      </Breadcrumb.Item>,
-      <Breadcrumb.Item key="join">
-        <Link to="/join">Join Giveaway</Link>
-      </Breadcrumb.Item>, 
-      <Breadcrumb.Item key="give">
-        <Link to="/give">Create Giveaway</Link>
-      </Breadcrumb.Item>
-    ]
-
     return (
       <Layout className="layout">
-        <Header>
-          🎀 giveth.me
-          <Button>Connect</Button>
-          Your account: {this.state.account}
-        </Header>
-        
+
+        <PageHeader
+          className="site-page-header"
+          backIcon='false'
+          title="🎀 giveth.me"
+          subTitle="v1.0"
+          extra={[
+            <Typography.Text>Your account: {this.state.account}</Typography.Text>,
+            <Button key="1" type="primary">
+              + Connect
+            </Button>
+          ]}>
+        </PageHeader>
+
+        <Space className='menubar' size='large' split={<Divider type="vertical" />}>
+
+          <Link to="/"><Typography.Link>About</Typography.Link></Link>
+          <Link to="/join"><Typography.Link>Join</Typography.Link></Link>
+          <Link to="/give"><Typography.Link>Give</Typography.Link></Link>
+
+        </Space>
+
         <Content style={{ padding: '0 100px' }}>
-          <Breadcrumb>{breadcrumbItems}</Breadcrumb>
+
           <Switch>
+
             <div className="site-layout-content">
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={About} />
               <Route path="/join" component={Join} />
               <Route path="/give" component={Give} />
+
             </div>
           </Switch>
+
         </Content>
+
         <Footer style={{ textAlign: 'center' }}>made with ❤️</Footer>
+
       </Layout>
     );
   }
