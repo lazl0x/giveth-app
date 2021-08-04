@@ -24,6 +24,10 @@
   background: #f0f2f5;
 }
 
+.ant-layout .give-layout {
+  background: white;
+}
+
 .ant-row-rtl .logo {
   float: right;
   margin: 16px 0 16px 24px;
